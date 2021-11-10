@@ -1,5 +1,7 @@
 let tableau_post_it = []
 
+let numero_id = -1
+
 function supprimer(num) {
 
     tableau_post_it.splice(num, 1)
@@ -31,8 +33,21 @@ document.getElementById("div_pink").addEventListener('click', () => {
 
 });
 
-document.addEventListener('keyup', () => {
+document.body.addEventListener('keyup', (event) => {
 
-    
+    console.log(numero_id,event)
+
+    if (numero_id > -1 ) {
+
+        if ( event.key === 'Backspace') {
+
+            
+            
+        }
+
+        tableau_post_it[numero_id].changer_texte(tableau_post_it[numero_id].texte + event.key)
+        tableau_post_it[numero_id].affichage()
+
+    }    
 
 })

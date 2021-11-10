@@ -131,9 +131,11 @@ class Post_It {
 
             bouton_changer_texte.addEventListener('click', () => {              
 
-                
+                numero_id = this.id
+
+                console.log(numero_id)
  
-             })
+            })
 
 
             // BOUTON CHANGER COULEUR
