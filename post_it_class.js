@@ -28,7 +28,6 @@ class Post_It {
 
             nouveau_post_it = document.createElement("div")       
             document.body.appendChild(nouveau_post_it);
-
         
         }        
 
@@ -62,6 +61,33 @@ class Post_It {
 
             bouton_mouvement.className = "fas fa-arrows-alt"
 
+                        // Track mouse movement
+
+            bouton_mouvement.addEventListener('mousedown', () => {
+
+                let pointerX = -1;
+                let pointerY = -1;
+
+                document.onmousemove = (event) => {                          
+                
+	                pointerX = event.pageX;
+	                pointerY = event.pageY;
+
+                    this.deplacement(pointerX - this.longeur + 168, pointerY - this.hauteur + 15)
+                    
+                    this.affichage();
+
+                    // console.log('Cursor at: '+pointerX + ', ' +pointerY);
+                } 
+                
+                document.body.addEventListener('mouseup', () => {
+
+                    document.onmousemove = () => {}
+
+                })
+             
+            })                 
+
             // BOUTON REDIMENSION
 
             let bouton_redimension = document.createElement("div")
@@ -69,12 +95,46 @@ class Post_It {
 
             bouton_redimension.className = "fas fa-compress-alt"
 
+            bouton_redimension.addEventListener('mousedown', () => {
+
+                let pointerX = 0
+                let pointerY = 0
+
+                let rect = nouveau_post_it.getBoundingClientRect();
+
+                document.onmousemove = (event) => {
+                    
+                    pointerX = event.clientX - rect.left;
+                    pointerY = event.clientY - rect.top;
+                    
+                    this.redimension(pointerX + 143, pointerY + 15)
+                    
+                    this.affichage();
+
+                    // console.log(pointerX, pointerY);
+                } 
+                
+                document.body.addEventListener('mouseup', () => {
+
+                    document.onmousemove = () => {}
+
+                })
+             
+            })
+
             // BOUTON CHANGER TEXTE
 
             let bouton_changer_texte = document.createElement("div")
             menu_post_it.appendChild(bouton_changer_texte);
 
             bouton_changer_texte.className = "far fa-keyboard"
+
+            bouton_changer_texte.addEventListener('click', () => {              
+
+                
+ 
+             })
+
 
             // BOUTON CHANGER COULEUR
 
@@ -102,8 +162,15 @@ class Post_It {
             let bouton_supprimer = document.createElement("div")
             menu_post_it.appendChild(bouton_supprimer);
 
-            bouton_supprimer.className = "fas fa-trash-alt" 
+            bouton_supprimer.className = "fas fa-trash-alt"
 
+            bouton_supprimer.addEventListener('click', () => {
+
+               document.body.removeChild(nouveau_post_it);
+
+               supprimer(this.id);
+
+            })
 
     }
 

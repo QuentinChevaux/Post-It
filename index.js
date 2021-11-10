@@ -1,6 +1,12 @@
 let tableau_post_it = []
 
-document.getElementById("div_blue").addEventListener('click', ()=>{    
+function supprimer(num) {
+
+    tableau_post_it.splice(num, 1)
+
+}
+
+document.getElementById("div_blue").addEventListener('click', () => {    
         
     tableau_post_it.push(new Post_It(800, 300, 200, 300, "blue", "Post It Bleu", tableau_post_it.length))
 
@@ -24,3 +30,9 @@ document.getElementById("div_pink").addEventListener('click', () => {
     
 
 });
+
+document.addEventListener('keyup', () => {
+
+    
+
+})
