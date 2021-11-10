@@ -4,10 +4,52 @@ body {
     margin-right: 0;
 
     background-color: #1E1E1E;
-    color: #fff;
 }
 
-.barre_gauche {
+#barre_gauche {
+    display: inline-block;
     width: 20%;
     background-color: #E7EAED;
+    height: 957px;
+}
+
+#barre_gauche div {
+    
+    width: 50%;
+    height: 250px;
+
+    margin: 50px auto;
+
+}
+
+#barre_gauche h2 {
+    text-align: center;
+    font-size: 40px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-top: 0;
+}
+
+#div_blue {
+    background-color: blue;
+    margin-top: -20px !important;
+}
+
+#div_green {
+    background-color: green;
+}
+
+#div_pink {
+    background-color: pink;
+}
+
+body>div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+body>div div {
+    align-self: flex-end;
+    font-size: 20px;
+    padding: 0 2px;
 }
