@@ -104,14 +104,13 @@ class Post_It {
 
                 document.onmousemove = (event) => {
                     
-                    pointerX = event.clientX - rect.left;
-                    pointerY = event.clientY - rect.top;
+                    pointerX = event.pageX - rect.left;
+                    pointerY = event.pageY - rect.top;
                     
                     this.redimension(pointerX + 143, pointerY + 15)
                     
                     this.affichage();
-
-                    // console.log(pointerX, pointerY);
+ 
                 } 
                 
                 document.body.addEventListener('mouseup', () => {
