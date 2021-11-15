@@ -132,8 +132,6 @@ class Post_It {
             bouton_changer_texte.addEventListener('click', () => {              
 
                 numero_id = this.id
-
-                console.log(numero_id)
  
             })
 
@@ -145,7 +143,7 @@ class Post_It {
 
             bouton_changer_couleur.className = "fas fa-fill-drip"
 
-            let randomColor = '#'+ Math.floor ( Math.random() *16777215 ).toString(16);
+            let randomColor = '#'+ Math.floor ( Math.random() * 16777215 ).toString(16);
 
             bouton_changer_couleur.addEventListener('click', () => {
 

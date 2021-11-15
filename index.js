@@ -33,22 +33,58 @@ document.getElementById("div_pink").addEventListener('click', () => {
 
 });
 
-document.body.addEventListener('keyup', (event) => {
+document.body.addEventListener('keydown', (event) => {
 
-    console.log(numero_id,event)
+    if ( numero_id > -1 ) {
 
-    if (numero_id > -1 ) {
+        let string = tableau_post_it[numero_id].texte
 
         if ( event.key === 'Backspace') {
-
-            return false;
-
             
+            //tableau_post_it[numero_id].changer_texte(tableau_post_it[numero_id].texte.substr(0, tableau_post_it[numero_id].texte.length - 1))
+
+            let lastChar = string.slice(0, string.length - 1)
+
+            tableau_post_it[numero_id].changer_texte(lastChar)
+            tableau_post_it[numero_id].affichage();
+        }
+        
+        else if ( event.key === 'Enter') {
+
+            let saut_ligne = string + '<br />'
+
+            tableau_post_it[numero_id].changer_texte(saut_ligne)
+            tableau_post_it[numero_id].affichage();
             
         }
+        
+        else if ( event.key === 'Control') {
 
-        tableau_post_it[numero_id].changer_texte(tableau_post_it[numero_id].texte + event.key)
-        tableau_post_it[numero_id].affichage()
+        
+
+        }
+
+        else if ( event.key === 'CapsLock') {
+
+            let uppercase = string.style.uppercase
+
+            tableau_post_it[numero_id].changer_texte(uppercase)
+            tableau_post_it[numero_id].affichage();
+
+        }
+
+        else if ( event.key === 'Tab') {
+ 
+
+        }
+
+
+        else {
+
+            tableau_post_it[numero_id].changer_texte(tableau_post_it[numero_id].texte + event.key)
+            tableau_post_it[numero_id].affichage()
+
+        }
 
     }    
 
