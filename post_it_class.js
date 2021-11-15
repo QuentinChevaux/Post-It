@@ -8,7 +8,7 @@ class Post_It {
     texte;
     id;
 
-    constructor(x, y, longeur, hauteur, couleur, texte, id, GrillePostit) {
+    constructor(x, y, longeur, hauteur, couleur, texte, id) {
 
         this.x = x
         this.y = y
@@ -29,7 +29,7 @@ class Post_It {
             nouveau_post_it = document.createElement("div")       
             document.body.appendChild(nouveau_post_it);
         
-        }        
+        }
 
         nouveau_post_it.id = "post_it" + this.id;
 
@@ -128,9 +128,11 @@ class Post_It {
 
             bouton_changer_texte.className = "far fa-keyboard"
 
-            bouton_changer_texte.addEventListener('click', () => {              
+            bouton_changer_texte.addEventListener('click', (event) => {              
 
                 numero_id = this.id
+
+                event.stopPropagation();
  
             })
 
@@ -142,13 +144,15 @@ class Post_It {
 
             bouton_changer_couleur.className = "fas fa-fill-drip"
 
-            let randomColor = '#'+ Math.floor ( Math.random() * 16777215 ).toString(16);
+            let randomColor = '#' + Math.floor ( Math.random() * 16777215 ).toString(16);
 
             bouton_changer_couleur.addEventListener('click', () => {
 
                 this.couleur = randomColor
 
                 this.changer_couleur(this.couleur);
+
+                console.log(randomColor)
 
                 this.affichage()
  

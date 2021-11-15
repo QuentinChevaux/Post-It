@@ -2,6 +2,12 @@ let tableau_post_it = []
 
 let numero_id = -1
 
+document.body.addEventListener('click', () => {
+
+    numero_id =- 1
+    
+})
+
 function supprimer(num) {
 
     tableau_post_it.splice(num, 1)
@@ -16,22 +22,73 @@ document.getElementById("div_blue").addEventListener('click', () => {
 
 });
 
-document.getElementById("div_green").addEventListener('click', () => {
+//document.getElementById("div_green").addEventListener('click', () => {
     
-    tableau_post_it.push(new Post_It(1000, 100, 200, 300, "green", "Post It Vert", tableau_post_it.length))
+  //  tableau_post_it.push(new Post_It(1000, 100, 200, 300, "green", "Post It Vert", tableau_post_it.length))
 
+    //tableau_post_it[tableau_post_it.length-1].affichage()
+
+//});
+
+document.getElementById("div_pink").addEventListener('mousedown', (event) => {
+
+    tableau_post_it.push(new Post_It(event.clientX, event.clientY, 200, 300, "green", "Post It Vert", tableau_post_it.length))
     tableau_post_it[tableau_post_it.length-1].affichage()
+
+    let pointerX = -1;
+    let pointerY = -1;
+
+    let affiche = tableau_post_it[tableau_post_it.length-1] 
+
+    document.onmousemove = (event) => {
+
+        pointerX = event.clientX;
+        pointerY = event.clientY;
+
+        affiche.deplacement(pointerX - affiche.longeur + 90 , pointerY - affiche.hauteur + 135)
+        
+        affiche.affichage();
+
+    } 
+                
+    document.body.addEventListener('mouseup', () => {
+
+        document.onmousemove = () => {}
+
+    }) 
 
 });
 
-document.getElementById("div_pink").addEventListener('click', () => {
+document.getElementById("div_pink").addEventListener('mousedown', (event) => {
 
-    tableau_post_it.push(new Post_It(400, 600, 200, 300, "pink", "Post It Rose", tableau_post_it.length))
-
+    tableau_post_it.push(new Post_It(event.clientX, event.clientY, 200, 300, "pink", "Post It Rose", tableau_post_it.length))
     tableau_post_it[tableau_post_it.length-1].affichage()
-    
+
+    let pointerX = -1;
+    let pointerY = -1;
+
+    let affiche = tableau_post_it[tableau_post_it.length-1] 
+
+    document.onmousemove = (event) => {
+
+        pointerX = event.clientX;
+        pointerY = event.clientY;
+
+        affiche.deplacement(pointerX - affiche.longeur + 90 , pointerY - affiche.hauteur + 135)
+        
+        affiche.affichage();
+
+    } 
+                
+    document.body.addEventListener('mouseup', () => {
+
+        document.onmousemove = () => {}
+
+    }) 
 
 });
+
+
 
 document.body.addEventListener('keydown', (event) => {
 
