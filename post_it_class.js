@@ -145,19 +145,53 @@ class Post_It {
 
             bouton_changer_couleur.className = "fas fa-fill-drip"
 
+            let randomColor = '#'+ Math.floor ( Math.random() *16777215 ).toString(16);
+
+            bouton_changer_couleur.addEventListener('click', () => {
+
+                this.couleur = randomColor
+
+                this.changer_couleur(this.couleur);
+
+                this.affichage()
+ 
+            })
+
             // BOUTON FRONT
 
             let bouton_passer_premier_plan = document.createElement("div")
             menu_post_it.appendChild(bouton_passer_premier_plan);
 
             bouton_passer_premier_plan.className = "fas fa-arrow-up"
+
+            let position_z = 1
+
+            bouton_passer_premier_plan.addEventListener('click', () => {
+
+                nouveau_post_it.style.zIndex = position_z++
+
+                console.log(position_z)
+
+            })
             
             // BOUTON BACK
 
             let bouton_passer_second_plan = document.createElement("div")
             menu_post_it.appendChild(bouton_passer_second_plan);
 
-            bouton_passer_second_plan.className = "fas fa-arrow-down"
+            bouton_passer_second_plan.className = "fas fa-arrow-down"        
+            
+            bouton_passer_second_plan.addEventListener('click', () => {
+                
+                if (position_z > 0 ) {
+                 
+                    nouveau_post_it.style.zIndex = position_z--
+                
+                    console.log(position_z)
+
+                }               
+
+            })
 
             // BOUTON SUPPRIMER
 

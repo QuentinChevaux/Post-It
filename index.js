@@ -41,6 +41,8 @@ document.body.addEventListener('keyup', (event) => {
 
         if ( event.key === 'Backspace') {
 
+            return false;
+
             
             
         }
