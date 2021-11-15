@@ -73,7 +73,7 @@ class Post_It {
 	                pointerX = event.pageX;
 	                pointerY = event.pageY;
 
-                    this.deplacement(pointerX - this.longeur + 168, pointerY - this.hauteur + 15)
+                    this.deplacement(pointerX - this.longeur + 150, pointerY - this.hauteur)
                     
                     this.affichage();
 
@@ -107,7 +107,7 @@ class Post_It {
                     pointerX = event.pageX - rect.left;
                     pointerY = event.pageY - rect.top;
                     
-                    this.redimension(pointerX + 143, pointerY + 15)
+                    this.redimension(pointerX + 125, pointerY)
                     
                     this.affichage();
  
