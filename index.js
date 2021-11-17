@@ -14,23 +14,36 @@ function supprimer(num) {
 
 }
 
-document.getElementById("div_blue").addEventListener('click', () => {    
-        
-    tableau_post_it.push(new Post_It(800, 300, 200, 300, "blue", "Post It Bleu", tableau_post_it.length))
+document.getElementById("div_blue").addEventListener('mousedown', (event) => {
 
+    tableau_post_it.push(new Post_It(event.clientX, event.clientY, 200, 300, "blue", "Post It Bleu", tableau_post_it.length))
     tableau_post_it[tableau_post_it.length-1].affichage()
+
+    let pointerX = -1;
+    let pointerY = -1;
+
+    let affiche = tableau_post_it[tableau_post_it.length-1] 
+
+    document.onmousemove = (event) => {
+
+        pointerX = event.clientX;
+        pointerY = event.clientY;
+
+        affiche.deplacement(pointerX - affiche.longeur + 90 , pointerY - affiche.hauteur + 135)
+        
+        affiche.affichage();
+
+    } 
+                
+    document.body.addEventListener('mouseup', () => {
+
+        document.onmousemove = () => {}
+
+    }) 
 
 });
 
-//document.getElementById("div_green").addEventListener('click', () => {
-    
-  //  tableau_post_it.push(new Post_It(1000, 100, 200, 300, "green", "Post It Vert", tableau_post_it.length))
-
-    //tableau_post_it[tableau_post_it.length-1].affichage()
-
-//});
-
-document.getElementById("div_pink").addEventListener('mousedown', (event) => {
+document.getElementById("div_green").addEventListener('mousedown', (event) => {
 
     tableau_post_it.push(new Post_It(event.clientX, event.clientY, 200, 300, "green", "Post It Vert", tableau_post_it.length))
     tableau_post_it[tableau_post_it.length-1].affichage()
