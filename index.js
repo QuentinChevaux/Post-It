@@ -8,14 +8,6 @@ document.body.addEventListener('click', () => {
     
 })
 
-function setCookie(cname, cvalue) {
-
-    document.cookie = cname + " = " + cvalue + " ; " + ";path/"
-
-}
-
-
-
 document.getElementById("div_blue").addEventListener('mousedown', (event) => {
 
     tableau_post_it.push(new Post_It(event.clientX, event.clientY, 200, 300, "blue", "Post It Bleu", tableau_post_it.length))
