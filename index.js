@@ -2,6 +2,7 @@ let tableau_post_it = []
 
 let numero_id = -1
 
+
 document.body.addEventListener('click', () => {
 
     numero_id = -1
@@ -33,7 +34,7 @@ document.getElementById("div_blue").addEventListener('mousedown', (event) => {
 
         document.onmousemove = () => {}
 
-    }) 
+    })
 
 });
 
@@ -62,7 +63,8 @@ document.getElementById("div_green").addEventListener('mousedown', (event) => {
 
         document.onmousemove = () => {}
 
-    }) 
+    })
+
 
 });
 
@@ -91,11 +93,10 @@ document.getElementById("div_pink").addEventListener('mousedown', (event) => {
 
         document.onmousemove = () => {}
 
-    }) 
+    })
+
 
 });
-
-
 
 document.body.addEventListener('keydown', (event) => {
 
@@ -151,3 +152,19 @@ function supprimer(num) {
     tableau_post_it.splice(num, 1)
 
 }
+
+setInterval(function() {
+    
+    let valeur_stringify = JSON.stringify(tableau_post_it)
+
+    document.cookie = valeur_stringify
+
+    console.log(valeur_stringify)
+
+}, 1000)
+
+function name(params) {
+    
+}
+
+
