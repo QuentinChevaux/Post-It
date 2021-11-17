@@ -153,7 +153,7 @@ function supprimer(num) {
 
 }
 
-setInterval(function() {
+setInterval( () => {
     
     let valeur_stringify = JSON.stringify(tableau_post_it)
 
@@ -163,8 +163,13 @@ setInterval(function() {
 
 }, 1000)
 
-function name(params) {
+function put_value_into_cookie() {
+
+    let valeur_back_array = JSON.parse(valeur_stringify)
+
+    console.log(valeur_back_array)
     
 }
 
+put_value_into_cookie();
 
