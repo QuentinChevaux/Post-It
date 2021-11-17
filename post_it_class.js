@@ -71,7 +71,6 @@ class Post_It {
         // MENU DES BOUTONS
 
         let menu_post_it = document.createElement("div")
-        nouveau_post_it.appendChild(menu_post_it);
 
         menu_post_it.className = "menu_post_it"
 
@@ -232,6 +231,8 @@ class Post_It {
                supprimer(this.id);
 
             })
+
+        nouveau_post_it.appendChild(menu_post_it);    
 
     }
 
