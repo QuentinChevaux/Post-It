@@ -128,14 +128,15 @@ class Post_It {
 
             bouton_changer_texte.className = "far fa-keyboard"
 
-            bouton_changer_texte.addEventListener('click', (event) => {              
+            bouton_changer_texte.addEventListener('click', (event) => {             
 
                 numero_id = this.id
+
+                this.changer_texte(" ")
 
                 event.stopPropagation();
  
             })
-
 
             // BOUTON CHANGER COULEUR
 
@@ -151,6 +152,8 @@ class Post_It {
                 this.couleur = randomColor
 
                 this.changer_couleur(this.couleur);
+
+                this.changer_texte("Post It de couleur " + randomColor)
 
                 console.log(randomColor)
 
