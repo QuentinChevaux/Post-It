@@ -1,3 +1,7 @@
+/**
+ * Classe Générale du Post-It avec tous les paramètres
+ */
+
 class Post_It {
 
     x;
@@ -7,6 +11,17 @@ class Post_It {
     couleur;
     texte;
     id;
+
+    /**
+     * Constructeur du Post-It avec tous les Paramètres ci-dessous
+     * @param x Lui donne la Valeur sur l'axe Horizontal
+     * @param y Lui donne la Valeur sur l'axe Verticale
+     * @param longeur Lui donne la Longeur du Post-It
+     * @param hauteur Lui donne la Hauteur du Post-It
+     * @param couleur Lui donne la Couleur du fond du Post-It
+     * @param texte Lui donne la Chaine de Charactère dans le Post-It
+     * @param id Lui donne son id unique
+     */
 
     constructor(x, y, longeur, hauteur, couleur, texte, id) {
 
@@ -19,6 +34,12 @@ class Post_It {
         this.id = id
 
     }
+
+    /**
+     * Fonction Affichage qui affiche le Post It avec tous les Parametres
+     * @param nouveau_post_it Créer un Nouveau Post-It et lui assigne les parametre du Constructeur
+     * @param menu_post_it Ajoute un Menu en bas à droite du Post-It qui contient des boutons de Personnalisation
+     */
 
     affichage() {
 
@@ -61,7 +82,7 @@ class Post_It {
 
             bouton_mouvement.className = "fas fa-arrows-alt"
 
-                        // Track mouse movement
+                    // Track mouse movement
 
             bouton_mouvement.addEventListener('mousedown', () => {
 
@@ -155,7 +176,7 @@ class Post_It {
 
                 this.changer_texte("Post It de couleur : " + randomColor)
 
-                console.log(randomColor)
+                // console.log(randomColor)
 
                 this.affichage()
  
@@ -174,7 +195,7 @@ class Post_It {
 
                 nouveau_post_it.style.zIndex = position_z++
 
-                console.log(position_z)
+                // console.log(position_z)
 
             })
             
@@ -191,7 +212,7 @@ class Post_It {
                  
                     nouveau_post_it.style.zIndex = position_z--
                 
-                    console.log(position_z)
+                    // console.log(position_z)
 
                 }               
 
@@ -214,12 +235,24 @@ class Post_It {
 
     }
 
+    /**
+     * Change les Valeurs X et Y du Post-It sur la Page
+     * @param {number} x valeur Horizontale sur la Page
+     * @param {number} y valeur Verticale sur la Page
+     */
+
     deplacement(x, y) {
 
         this.x = x
         this.y = y
 
     }
+
+    /**
+     * Change les Valeurs de Longeur et Hauteur du Post-It pour le redimensionner
+     * @param {number} longeur valeur de Longeur du Post-It
+     * @param {number} hauteur valeur de Hauteur du Post-It
+     */
 
     redimension(longeur, hauteur) {
 
@@ -228,11 +261,21 @@ class Post_It {
 
     }
 
+    /**
+     * Change le Texte à l'interieur du Post-It
+     * @param {string} texte valeur du Texte
+     */
+
     changer_texte(texte) {
 
         this.texte = texte
 
     }
+
+    /**
+     * Change la Couleur de Background du Post-It
+     * @param {string} couleur valeur de la Couleur de fond du Post-It 
+     */
 
     changer_couleur(couleur) {
 

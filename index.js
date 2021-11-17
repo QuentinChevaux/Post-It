@@ -4,15 +4,9 @@ let numero_id = -1
 
 document.body.addEventListener('click', () => {
 
-    numero_id =- 1
+    numero_id = -1
     
 })
-
-function supprimer(num) {
-
-    tableau_post_it.splice(num, 1)
-
-}
 
 document.getElementById("div_blue").addEventListener('mousedown', (event) => {
 
@@ -146,3 +140,14 @@ document.body.addEventListener('keydown', (event) => {
     }    
 
 })
+
+/**
+ * Fonction permettant de supprimer le Post-It dans l'Array
+ * @param {number} num
+ */
+
+ function supprimer(num) {
+
+    tableau_post_it.splice(num, 1)
+
+}
