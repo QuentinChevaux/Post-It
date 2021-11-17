@@ -153,7 +153,7 @@ class Post_It {
 
                 this.changer_couleur(this.couleur);
 
-                this.changer_texte("Post It de couleur " + randomColor)
+                this.changer_texte("Post It de couleur : " + randomColor)
 
                 console.log(randomColor)
 

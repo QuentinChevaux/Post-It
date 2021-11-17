@@ -111,7 +111,7 @@ document.body.addEventListener('keydown', (event) => {
 
         if ( event.key === 'Backspace') {
             
-            //tableau_post_it[numero_id].changer_texte(tableau_post_it[numero_id].texte.substr(0, tableau_post_it[numero_id].texte.length - 1))
+            // tableau_post_it[numero_id].changer_texte(tableau_post_it[numero_id].texte.substr(0, tableau_post_it[numero_id].texte.length - 1))
 
             let lastChar = string.slice(0, string.length - 1)
 
@@ -128,26 +128,13 @@ document.body.addEventListener('keydown', (event) => {
             
         }
         
-        else if ( event.key === 'Control') {
+        else if ( event.key === 'Control') {}
 
-        
+        else if ( event.key === 'Shift') {}
 
-        }
+        else if ( event.key === 'CapsLock') {}
 
-        else if ( event.key === 'CapsLock') {
-
-            let uppercase = string.style.uppercase
-
-            tableau_post_it[numero_id].changer_texte(uppercase)
-            tableau_post_it[numero_id].affichage();
-
-        }
-
-        else if ( event.key === 'Tab') {
- 
-
-        }
-
+        else if ( event.key === 'Tab') {}
 
         else {
 
