@@ -171,13 +171,13 @@ function put_value_into_cookie() {
 
         console.log(valeur_back_array[i])
 
-        if(valeur_back_array[i]!==null){
+        if ( valeur_back_array[i] !== null ){
 
-        tableau_post_it.push(new Post_It(valeur_back_array[i].x, valeur_back_array[i].y, valeur_back_array[i].longeur, 
+            tableau_post_it.push(new Post_It(valeur_back_array[i].x, valeur_back_array[i].y, valeur_back_array[i].longeur, 
                                          valeur_back_array[i].hauteur, valeur_back_array[i].couleur, valeur_back_array[i].texte,tableau_post_it.length))
 
-        tableau_post_it[tableau_post_it.length-1].affichage();
-        
+            tableau_post_it[tableau_post_it.length-1].affichage();
+
         }
 
     }
@@ -188,6 +188,6 @@ function reset_table() {
     
     tableau_post_it = []
 
-    console.log(tableau_post_it)
+    console.log("Tableau vidé ", tableau_post_it)
 
 }
