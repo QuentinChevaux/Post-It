@@ -166,7 +166,39 @@ function put_value_into_cookie() {
 
     let valeur_back_array = JSON.parse(document.cookie)
 
-    console.log(valeur_back_array)
+    // console.log(valeur_back_array)
+
+    function extractValue(arr, prop) {
+
+        // extract value from property
+        let extractedValue = arr.map(item => item[prop]);
+    
+        return extractedValue;
+    
+    }
+    
+    // passing an array of objects and property 'a' to extract
+    let result_x = extractValue(valeur_back_array, 'x');
+    let result_y = extractValue(valeur_back_array, 'y');
+    let result_longeur = extractValue(valeur_back_array, 'longeur');
+    let result_hauteur = extractValue(valeur_back_array, 'hauteur');
+    let result_couleur = extractValue(valeur_back_array, 'couleur');
+    let result_texte = extractValue(valeur_back_array, 'texte');
+    let result_id = extractValue(valeur_back_array, 'id');
+
+    let x_parsed = parseInt(result_x)
+    let y_parsed = parseInt(result_y)
+    let longeur_parsed = parseInt(result_longeur)
+    let hauteur_parsed = parseInt(result_hauteur)
+    let couleur_parsed = result_couleur
+    let texte_parsed = result_texte
+    let id_parsed = parseInt(result_id)
+
+    
+
+    console.log(x_parsed, y_parsed, longeur_parsed, hauteur_parsed, couleur_parsed, texte_parsed, id_parsed);
+
+    // tableau_post_it.push(new Post_It(x_parsed, 500))
 
 }
 
