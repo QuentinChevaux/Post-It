@@ -2,6 +2,7 @@ let tableau_post_it = []
 
 let numero_id = -1
 
+document.onload = put_value_into_cookie();
 
 document.body.addEventListener('click', () => {
 
@@ -166,41 +167,22 @@ function put_value_into_cookie() {
 
     let valeur_back_array = JSON.parse(document.cookie)
 
-    // console.log(valeur_back_array)
+    for (i = 0; i < valeur_back_array.length; i++) {
 
-    function extractValue(arr, prop) {
+        console.log(valeur_back_array[i])
 
-        // extract value from property
-        let extractedValue = arr.map(item => item[prop]);
-    
-        return extractedValue;
-    
+        tableau_post_it.push(new Post_It(valeur_back_array[i].x, valeur_back_array[i].y, valeur_back_array[i].longeur, 
+                                         valeur_back_array[i].hauteur, valeur_back_array[i].couleur, valeur_back_array[i].texte,
+                                         valeur_back_array[i].id))
+
+        tableau_post_it[tableau_post_it.length-1].affichage();
+
     }
-    
-    // passing an array of objects and property 'a' to extract
-    let result_x = extractValue(valeur_back_array, 'x');
-    let result_y = extractValue(valeur_back_array, 'y');
-    let result_longeur = extractValue(valeur_back_array, 'longeur');
-    let result_hauteur = extractValue(valeur_back_array, 'hauteur');
-    let result_couleur = extractValue(valeur_back_array, 'couleur');
-    let result_texte = extractValue(valeur_back_array, 'texte');
-    let result_id = extractValue(valeur_back_array, 'id');
-
-    let x_parsed = parseInt(result_x)
-    let y_parsed = parseInt(result_y)
-    let longeur_parsed = parseInt(result_longeur)
-    let hauteur_parsed = parseInt(result_hauteur)
-    let couleur_parsed = result_couleur
-    let texte_parsed = result_texte
-    let id_parsed = parseInt(result_id)
-
-    
-
-    console.log(x_parsed, y_parsed, longeur_parsed, hauteur_parsed, couleur_parsed, texte_parsed, id_parsed);
-
-    // tableau_post_it.push(new Post_It(x_parsed, 500))
 
 }
 
-document.onload = put_value_into_cookie();
+function reset_table() {
+    
+    tableau_post_it = []
 
+}

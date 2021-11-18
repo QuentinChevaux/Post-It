@@ -67,3 +67,16 @@ body>div {
     padding: 5px 3px;
 
 }
+
+button {
+
+    margin: auto;
+
+    font-size: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    
+}
