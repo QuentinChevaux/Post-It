@@ -1,7 +1,6 @@
 /**
  * Classe Générale du Post-It avec tous les paramètres
  */
-
 class Post_It {
 
     x;

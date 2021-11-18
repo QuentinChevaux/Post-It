@@ -162,7 +162,6 @@ setInterval( () => {
 
 }, 1000)
 
-
 function put_value_into_cookie() {
 
     let valeur_back_array = JSON.parse(document.cookie)
