@@ -49,8 +49,12 @@ class Post_It {
 
             nouveau_post_it = document.createElement("div")       
             document.body.appendChild(nouveau_post_it);
+
+            nouveau_post_it.addEventListener('dragstart', drag_start, false);
         
         }
+
+        nouveau_post_it.draggable = true
 
         nouveau_post_it.id = "post_it" + this.id;
 
@@ -74,39 +78,7 @@ class Post_It {
 
         menu_post_it.className = "menu_post_it"
 
-            // BOUTON MOUVEMENT
-
-            let bouton_mouvement = document.createElement("div")
-            menu_post_it.appendChild(bouton_mouvement);
-
-            bouton_mouvement.className = "fas fa-arrows-alt"
-
-                    // Track mouse movement
-
-            bouton_mouvement.addEventListener('mousedown', () => {
-
-                let pointerX = -1;
-                let pointerY = -1;
-
-                document.onmousemove = (event) => {                          
-                
-	                pointerX = event.pageX;
-	                pointerY = event.pageY;
-
-                    this.deplacement(pointerX - this.longeur + 150, pointerY - this.hauteur)
-                    
-                    this.affichage();
-
-                    // console.log('Cursor at: '+pointerX + ', ' +pointerY);
-                } 
-                
-                document.body.addEventListener('mouseup', () => {
-
-                    document.onmousemove = () => {}
-
-                })
-             
-            })                 
+            // BOUTON MOUVEMENT INUTILE CAR DRAG AND DROP               
 
             // BOUTON REDIMENSION
 

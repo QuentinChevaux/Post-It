@@ -2,13 +2,41 @@ let tableau_post_it = []
 
 let numero_id = -1
 
-document.onload = put_value_into_cookie();
-
 document.body.addEventListener('click', () => {
 
     numero_id = -1
     
 })
+
+function drag_start(event) {
+	var style = window.getComputedStyle(event.target, null);
+	event.dataTransfer.setData("text/plain", (parseInt(style.getPropertyValue("left"), 10) - event.clientX) + ',' + 
+                                             (parseInt(style.getPropertyValue("top"), 10) - event.clientY) + ',' + event.target.id);
+}
+
+function drag_over(event) {
+
+	event.preventDefault();
+	return false;
+
+}
+
+function drop(event) {
+
+	var offset = event.dataTransfer.getData("text/plain").split(',');
+
+	var all_post_it = document.getElementById([offset[2]]);
+
+	all_post_it.style.left = (event.clientX + parseInt(offset[0], 10)) + 'px';
+	all_post_it.style.top = (event.clientY + parseInt(offset[1], 10)) + 'px';
+	event.preventDefault();
+	return false;
+
+}
+
+document.body.addEventListener('dragover', drag_over, false);
+document.body.addEventListener('drop', drop, false);
+
 
 document.getElementById("div_blue").addEventListener('mousedown', (event) => {
 
@@ -154,18 +182,23 @@ function supprimer(num) {
 
 }
 
-setInterval( () => {
-    
-    document.cookie = JSON.stringify(tableau_post_it)
+document.onload = value_back_from_localStorage();
 
-    console.log(document.cookie)
+setInterval( () => {
+
+    localStorage.setItem("table_value", JSON.stringify(tableau_post_it))
 
 }, 1000)
 
+/**
+ * Recupère la valeur dans le Local Storage donc recupère les Post-it de la session précédente
+ */
 
-function put_value_into_cookie() {
+function value_back_from_localStorage() {
 
-    let valeur_back_array = JSON.parse(document.cookie)
+    let parse_localStorage = localStorage.getItem("table_value")
+    
+    let valeur_back_array = JSON.parse(parse_localStorage)
 
     for (i = 0; i < valeur_back_array.length; i++) {
 
@@ -181,13 +214,5 @@ function put_value_into_cookie() {
         }
 
     }
-
-}
-
-function reset_table() {
-    
-    tableau_post_it = []
-
-    console.log("Tableau vidé ", tableau_post_it)
 
 }
